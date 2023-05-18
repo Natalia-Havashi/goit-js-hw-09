@@ -20,10 +20,7 @@ function createPromise(position, delay) {
 
 btnCreatePromise.addEventListener('click', e => {
   e.preventDefault();
-  let firstDelay = Number(delay.value);
-  let delayStep = Number(step.value);
-  for (let i = 0; i < amount.value; i++) {
-    createPromise(2, 1500)
+  createPromise(2, 1500)
   .then(({ position, delay }) => {
     console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
   })
@@ -31,4 +28,6 @@ btnCreatePromise.addEventListener('click', e => {
     console.log(`❌ Rejected promise ${position} in ${delay}ms`);
   });
   }
-});
+);
+
+
