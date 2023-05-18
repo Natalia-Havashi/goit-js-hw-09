@@ -20,7 +20,7 @@ const options = {
   
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
-      Notiflix.Notify.failure('Please choose a date in the future');
+      Notiflix.Notify.failure('This date is not valid');
       btnStart.disabled = true;
     } else {
       btnStart.disabled = false;
@@ -67,7 +67,7 @@ btnStart.addEventListener('click', () => {
         timerHtml.style.color = 'tomato';
       }
     } else {
-      Notiflix.Notify.success('Countdown finished');
+      Notiflix.Notify.success('The countdown is complete');
       timerHtml.style.color = 'black';
       clearInterval(timer);
     }
