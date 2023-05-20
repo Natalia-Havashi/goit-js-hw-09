@@ -1,8 +1,5 @@
 import Notiflix from 'notiflix';
-const delay = document.querySelector('input[name="delay"]');
-const step = document.querySelector('input[name="step"]');
-const amount = document.querySelector('input[name="amount"]');
-const btnCreatePromise = document.querySelector('button[type="submit"]');
+const form = document.querySelector('.form');
 
 function createPromise(position, delay) {
   const promise = new Promise((resolve, reject) => {
@@ -18,10 +15,12 @@ function createPromise(position, delay) {
   return promise;
 }
 
-btnCreatePromise.addEventListener('click', e => {
-  e.preventDefault();
-  let firstDelay = Number(delay.value);
-  let delayStep = Number(step.value);
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  let firstDelay = Number(event.target.elements.firstDelay.value);
+  let delayStep = Number(event.target.elements.deleyStep.value);
+
   for (let i = 0; i < amount.value; i++) {
     createPromise(1 + i, firstDelay + i * delayStep)
       .then(({ position, delay }) => {
@@ -38,10 +37,7 @@ btnCreatePromise.addEventListener('click', e => {
 });
 
 
-// createPromise(2, 1500)
-//   .then(({ position, delay }) => {
-//     console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-//   })
-//   .catch(({ position, delay }) => {
-//     console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-//   });
+
+
+
+
