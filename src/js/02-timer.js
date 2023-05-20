@@ -54,50 +54,18 @@ function addLeadingZero(value) {
 }
 
 
-btnStart.addEventListener('click',() => {
-  let timer = setInterval(() => {
-    let countdown = new Date(text.value) - Date.now();
-
-    btnStart.disabled = true;
-    if (countdown >= 0) {
-      
-      let timeObject = convertMs(countdown);
-      days.textContent = addLeadingZero(timeObject.days);
-      hours.textContent = addLeadingZero(timeObject.hours);
-      minutes.textContent = addLeadingZero(timeObject.minutes);
-      seconds.textContent = addLeadingZero(timeObject.seconds);
-      if (countdown <= 10000) {
-        timerHtml.style.color = 'tomato';
-      }
-    } else {
-      Notiflix.Notify.success('The countdown is complete');
-      timerHtml.style.color = 'black';
-      clearInterval(timer);
-    }
-  }, 1000);
-});
-
-
-
-
-
-
-// function timeOb() {
-//   let timeObject = convertMs(countdown);
-//   days.textContent = addLeadingZero(timeObject.days);
-//   hours.textContent = addLeadingZero(timeObject.hours);
-//   minutes.textContent = addLeadingZero(timeObject.minutes);
-//   seconds.textContent = addLeadingZero(timeObject.seconds);
-// };
-
-
 // btnStart.addEventListener('click',() => {
 //   let timer = setInterval(() => {
 //     let countdown = new Date(text.value) - Date.now();
 
 //     btnStart.disabled = true;
 //     if (countdown >= 0) {
-    
+      
+//       let timeObject = convertMs(countdown);
+//       days.textContent = addLeadingZero(timeObject.days);
+//       hours.textContent = addLeadingZero(timeObject.hours);
+//       minutes.textContent = addLeadingZero(timeObject.minutes);
+//       seconds.textContent = addLeadingZero(timeObject.seconds);
 //       if (countdown <= 10000) {
 //         timerHtml.style.color = 'tomato';
 //       }
@@ -108,3 +76,35 @@ btnStart.addEventListener('click',() => {
 //     }
 //   }, 1000);
 // });
+
+
+
+
+
+
+function timeOb() {
+  let timeObject = convertMs(countdown);
+  days.textContent = addLeadingZero(timeObject.days);
+  hours.textContent = addLeadingZero(timeObject.hours);
+  minutes.textContent = addLeadingZero(timeObject.minutes);
+  seconds.textContent = addLeadingZero(timeObject.seconds);
+};
+
+
+btnStart.addEventListener('click',() => {
+  let timer = setInterval(() => {
+    let countdown = new Date(text.value) - Date.now();
+
+    btnStart.disabled = true;
+    if (countdown >= 0) {
+    
+      if (countdown <= 10000) {
+        timerHtml.style.color = 'tomato';
+      }
+    } else {
+      Notiflix.Notify.success('The countdown is complete');
+      timerHtml.style.color = 'black';
+      clearInterval(timer);
+    }
+  }, 1000);
+});
