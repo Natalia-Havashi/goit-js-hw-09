@@ -18,8 +18,8 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   
-  onClose(selectedDates) {
-    if (selectedDates[0] < new Date()) {
+  onClose([selectedDates]) {
+    if (selectedDates < Date.now()) {
       Notiflix.Notify.failure('This date is not valid');
       btnStart.disabled = true;
     } else {
@@ -55,7 +55,7 @@ function addLeadingZero(value) {
 
 btnStart.addEventListener('click', () => {
   let timer = setInterval(() => {
-    let countdown = new Date(text.value) - new Date();
+    let countdown = new Date(text.value) - Date.now();
     btnStart.disabled = true;
     if (countdown >= 0) {
       let timeObject = convertMs(countdown);
