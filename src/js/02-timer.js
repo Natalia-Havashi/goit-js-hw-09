@@ -11,8 +11,6 @@ const hours = document.querySelector('span[data-hours]');
 const days = document.querySelector('span[data-days]');
 
 btnStart.disabled = true;
-// let timeObject = null;
-let countdown = null;
 
 const options = {
   enableTime: true,
@@ -66,10 +64,10 @@ function drawTimer({days, hours, minutes, seconds}) {
 
 btnStart.addEventListener('click', () => {
   let timer = setInterval(function()  {
-       countdown = new Date(text.value) - Date.now();
+      let countdown = new Date(text.value) - Date.now();
        btnStart.disabled = true;
    if (countdown >= 0) {
-   const timeObject = convertMs(countdown);
+   let timeObject = convertMs(countdown);
     drawTimer(timeObject);
    
       if(countdown <= 1000) {
