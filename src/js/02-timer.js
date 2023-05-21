@@ -11,6 +11,8 @@ const hours = document.querySelector('span[data-hours]');
 const days = document.querySelector('span[data-days]');
 
 btnStart.disabled = true;
+// let timeObject = null;
+let countdown = null;
 
 const options = {
   enableTime: true,
@@ -54,20 +56,20 @@ function addLeadingZero(value) {
 }
 
 function drawTimer({days, hours, minutes, seconds}) {
-  days.textContent = addLeadingZero(timeObject.days);
-  hours.textContent = addLeadingZero(timeObject.hours);
-  minutes.textContent = addLeadingZero(timeObject.minutes);
-  seconds.textContent = addLeadingZero(timeObject.seconds);
+  days.textContent = addLeadingZero(days);
+  hours.textContent = addLeadingZero(hours);
+  minutes.textContent = addLeadingZero(minutes);
+  seconds.textContent = addLeadingZero(seconds);
 }
 
 
 
 btnStart.addEventListener('click', () => {
   let timer = setInterval(function()  {
-       let countdown = new Date(text.value) - Date.now();
+       countdown = new Date(text.value) - Date.now();
        btnStart.disabled = true;
    if (countdown >= 0) {
-    const timeObject = convertMs(countdown);
+   const timeObject = convertMs(countdown);
     drawTimer(timeObject);
    
       if(countdown <= 1000) {
