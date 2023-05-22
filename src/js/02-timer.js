@@ -12,6 +12,7 @@ const days = document.querySelector('span[data-days]');
 
 btnStart.disabled = true;
 
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -68,6 +69,7 @@ btnStart.addEventListener('click', () => {
        btnStart.disabled = true;
    if (countdown >= 0) {
    let timeObject = convertMs(countdown);
+   console.log(drawTimer(timeObject));
     drawTimer(timeObject);
    
       if(countdown <= 1000) {
