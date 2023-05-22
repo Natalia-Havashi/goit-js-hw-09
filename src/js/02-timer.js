@@ -5,10 +5,10 @@ import Notiflix from 'notiflix';
 const text = document.querySelector('#datetime-picker');
 const timerHtml = document.querySelector('.timer');
 const btnStart = document.querySelector('button[data-start]');
-const seconds = document.querySelector('span[data-seconds]');
-const minutes = document.querySelector('span[data-minutes]');
-const hours = document.querySelector('span[data-hours]');
-const days = document.querySelector('span[data-days]');
+const secondsData = document.querySelector('span[data-seconds]');
+const minutesData = document.querySelector('span[data-minutes]');
+const hoursData = document.querySelector('span[data-hours]');
+const daysData = document.querySelector('span[data-days]');
 
 btnStart.disabled = true;
 
@@ -55,10 +55,10 @@ function addLeadingZero(value) {
 }
 
 function drawTimer({days, hours, minutes, seconds}) {
-  days.textContent = addLeadingZero(days);
-  hours.textContent = addLeadingZero(hours);
-  minutes.textContent = addLeadingZero(minutes);
-  seconds.textContent = addLeadingZero(seconds);
+  daysData.textContent = addLeadingZero(days);
+  hoursData.textContent = addLeadingZero(hours);
+  minutesData.textContent = addLeadingZero(minutes);
+  secondsData.textContent = addLeadingZero(seconds);
 }
 
 
