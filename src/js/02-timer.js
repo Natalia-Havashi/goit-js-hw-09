@@ -69,7 +69,7 @@ btnStart.addEventListener('click', () => {
        btnStart.disabled = true;
    if (countdown >= 0) {
    let timeObject = convertMs(countdown);
-   console.log(drawTimer(timeObject));
+   
     drawTimer(timeObject);
    
       if(countdown <= 1000) {
